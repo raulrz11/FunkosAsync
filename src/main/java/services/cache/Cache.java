@@ -1,13 +1,15 @@
 package services.cache;
 
+import java.util.concurrent.CompletableFuture;
+
 public interface Cache <K, V>{
-    void put(K key, V value);
+    CompletableFuture<Void> put(K key, V value);
 
-    V get(K key);
+    CompletableFuture<V> get(K key);
 
-    void remove(K key);
+    CompletableFuture<Void> remove(K key);
 
-    void clear();
+    CompletableFuture<Void> clear();
 
-    void shutdown();
+    CompletableFuture<Void> shutdown();
 }

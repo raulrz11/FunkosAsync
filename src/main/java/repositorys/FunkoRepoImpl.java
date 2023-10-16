@@ -20,15 +20,14 @@ public class FunkoRepoImpl implements FunkoRepo{
     private static FunkoRepoImpl instance;
     private Logger logger = LoggerFactory.getLogger(DatabaseManager.class);
     private static DatabaseManager db;
-    private static IdGenerator myId;
-    private FunkoRepoImpl(DatabaseManager db, IdGenerator id){
+    private static IdGenerator myId = new IdGenerator();
+    private FunkoRepoImpl(DatabaseManager db){
         this.db = db;
-        this.myId = id;
     }
 
-    public synchronized static FunkoRepoImpl getInstance(DatabaseManager db, IdGenerator id){
+    public synchronized static FunkoRepoImpl getInstance(DatabaseManager db){
         if (instance == null){
-           instance = new FunkoRepoImpl(db, id);
+           instance = new FunkoRepoImpl(db);
         }
         return instance;
     }
@@ -106,8 +105,9 @@ public class FunkoRepoImpl implements FunkoRepo{
                 while (res.next()){
                     Funkos funkos = new Funkos();
                     funkos.setId(res.getInt("id"));
-                    funkos.setCod(res.getObject("uuid", UUID.class));
-                    funkos.setNombre(res.getString("name"));
+                    funkos.setCod(UUID.fromString(res.getString("uuid")));
+                    funkos.setMyId(res.getInt("myId"));
+                    funkos.setNombre(res.getString("nombre"));
                     funkos.setModelo(Funkos.Modelo.valueOf(res.getString("modelo")));
                     funkos.setPrecio(res.getDouble("precio"));
                     funkos.setFechaLanzamiento(res.getDate("fecha_lanzamiento").toLocalDate());
@@ -124,7 +124,7 @@ public class FunkoRepoImpl implements FunkoRepo{
     @Override
     public CompletableFuture<Optional<Funkos>> findById(Integer id) throws SQLException {
         return CompletableFuture.supplyAsync(() -> {
-            var query = "SELECT * FROM FUNKOS";
+            var query = "SELECT * FROM FUNKOS WHERE id = ?";
             Optional<Funkos> funko = Optional.empty();
             try(var conn = db.getConnection();
                 var stmt = conn.prepareStatement(query)){
@@ -135,8 +135,9 @@ public class FunkoRepoImpl implements FunkoRepo{
                 while (res.next()){
                     Funkos funkos = new Funkos();
                     funkos.setId(res.getInt("id"));
-                    funkos.setCod(res.getObject("uuid", UUID.class));
-                    funkos.setNombre(res.getString("name"));
+                    funkos.setCod(UUID.fromString(res.getString("uuid")));
+                    funkos.setMyId(res.getInt("myId"));
+                    funkos.setNombre(res.getString("nombre"));
                     funkos.setModelo(Funkos.Modelo.valueOf(res.getString("modelo")));
                     funkos.setPrecio(res.getDouble("precio"));
                     funkos.setFechaLanzamiento(res.getDate("fecha_lanzamiento").toLocalDate());
@@ -188,20 +189,21 @@ public class FunkoRepoImpl implements FunkoRepo{
             try(var conn = db.getConnection();
                 var stmt = conn.prepareStatement(query)){
 
-                logger.debug("Obteniendo todos los Funkos");
+                logger.debug("Obteniendo el Funko: " + nombre);
                 stmt.setString(1, "%" + nombre + "%");
                 var res = stmt.executeQuery();
                 while (res.next()){
                     Funkos funkos = new Funkos();
                     funkos.setId(res.getInt("id"));
-                    funkos.setCod(res.getObject("uuid", UUID.class));
-                    funkos.setNombre(res.getString("name"));
+                    funkos.setCod(UUID.fromString(res.getString("uuid")));
+                    funkos.setMyId(res.getInt("myId"));
+                    funkos.setNombre(res.getString("nombre"));
                     funkos.setModelo(Funkos.Modelo.valueOf(res.getString("modelo")));
                     funkos.setPrecio(res.getDouble("precio"));
                     funkos.setFechaLanzamiento(res.getDate("fecha_lanzamiento").toLocalDate());
                     listaFunkos.add(funkos);
                 }
-                logger.debug("Funkos obtenidos");
+                logger.debug("Funko obtenido");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

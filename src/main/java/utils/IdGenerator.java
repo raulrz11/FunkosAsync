@@ -16,7 +16,7 @@ public class IdGenerator {
         }
     }
 
-    public void setMyId(int value){
+    public void  setMyId(int value){
         lockId.lock();
         try {
             id = value;

@@ -4,35 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d91a861-8ac3-4541-ac6a-2e58f341fac8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Funkos.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/FunkosController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/FunkoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/FunkoNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/FunkoNotSaveException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Funkos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositorys/CrudRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositorys/FunkoRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositorys/FunkoRepoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/DatabaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/cache/Cache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/funkos/FunkoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/funkos/FunkoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/IdGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/init.sql" afterDir="false" />
+    <list default="true" id="8d91a861-8ac3-4541-ac6a-2e58f341fac8" name="Changes" comment="commit inicial con repositorio, manejador DB y idGenerator">
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/cache/FunkoCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/cache/FunkoCacheImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Funkos.db" beforeDir="false" afterPath="$PROJECT_DIR$/Funkos.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Funkos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Funkos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositorys/FunkoRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositorys/FunkoRepoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/cache/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/cache/Cache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/funkos/FunkoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/funkos/FunkoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/funkos/FunkoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/funkos/FunkoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/IdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/IdGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/init.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,36 +57,38 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2WGRLHV4qWWCBasXRoqOexJ4olz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "C:/Users/Raul Rodriguez Luna/IdeaProjects/FuncosAsync/src/main/java/org/example/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Raul Rodriguez Luna/IdeaProjects/FuncosAsync/Funkos.db&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Raul Rodriguez Luna/IdeaProjects/FuncosAsync/src/main/java/org/example/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -107,11 +97,28 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696356874359</updated>
-      <workItem from="1696356875405" duration="36540000" />
+      <workItem from="1696356875405" duration="47414000" />
+      <workItem from="1697126765246" duration="96000" />
+      <workItem from="1697129784397" duration="30114000" />
+      <workItem from="1697299139938" duration="12663000" />
+      <workItem from="1697386910948" duration="12837000" />
     </task>
+    <task id="LOCAL-00001" summary="commit inicial con repositorio, manejador DB y idGenerator">
+      <option name="closed" value="true" />
+      <created>1696805462851</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696805462851</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit inicial con repositorio, manejador DB y idGenerator" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit inicial con repositorio, manejador DB y idGenerator" />
   </component>
 </project>

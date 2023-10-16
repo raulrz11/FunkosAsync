@@ -1,10 +1,10 @@
 DROP TABLE IF EXISTS FUNKOS;
-CREATE TABLE IF NOT EXISTS FUNKOS (
-                                     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-                                     uuid UUID NOT NULL DEFAULT RANDOM_UUID(),
-                                     myId INTEGER NOT NULL,
+CREATE TABLE IF NOT EXISTS FUNKOS  (
+                                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                     uuid UUID NOT NULL,
+                                     myId INTEGER,
     nombre VARCHAR(255) NOT NULL,
-    modelo ENUM('MARVEL', 'DISNEY', 'ANIME', 'OTROS')NOT NULL,
+    modelo TEXT CHECK (modelo IN ('MARVEL', 'DISNEY', 'ANIME', 'OTROS')),
     precio DOUBLE NOT NULL,
     fecha_lanzamiento DATE NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

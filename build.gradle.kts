@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.xerial:sqlite-jdbc:3.43.0.0")
     implementation("ch.qos.logback:logback-classic:1.4.11")
     implementation("com.google.code.gson:gson:2.7")
     implementation("com.zaxxer:HikariCP:5.0.1")

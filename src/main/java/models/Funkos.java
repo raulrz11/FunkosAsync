@@ -1,15 +1,19 @@
 package models;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Funkos {
-    private int id;
     private UUID cod = UUID.randomUUID();
+
     private String nombre;
     private Modelo modelo;
     private double precio;
     private LocalDate fechaLanzamiento;
+    private LocalDateTime updateTime;
+    private int id;
+    private int myId;
 
     public Funkos() {
 
@@ -22,8 +26,7 @@ public class Funkos {
         OTROS
     }
 
-    public Funkos(int id, UUID cod, String nombre, Modelo modelo, double precio, LocalDate fechaLanzamiento) {
-        this.id = id;
+    public Funkos(UUID cod, String nombre, Modelo modelo, double precio, LocalDate fechaLanzamiento) {
         this.cod = cod;
         this.nombre = nombre;
         this.modelo = modelo;
@@ -45,6 +48,14 @@ public class Funkos {
 
     public void setCod(UUID cod) {
         this.cod = cod;
+    }
+
+    public int getMyId() {
+        return myId;
+    }
+
+    public void setMyId(int myId) {
+        this.myId = myId;
     }
 
     public String getNombre() {
@@ -75,6 +86,14 @@ public class Funkos {
         return fechaLanzamiento;
     }
 
+    public LocalDateTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(LocalDateTime updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public void setFechaLanzamiento(LocalDate fechaLanzamiento) {
         this.fechaLanzamiento = fechaLanzamiento;
     }
@@ -84,10 +103,12 @@ public class Funkos {
         return "Funkos{" +
                 "id=" + id +
                 ", cod=" + cod +
+                ", myId=" + myId +
                 ", nombre='" + nombre + '\'' +
                 ", modelo=" + modelo +
                 ", precio=" + precio +
                 ", fechaLanzamiento=" + fechaLanzamiento +
+                ", updateTime=" + updateTime +
                 '}';
     }
 }
